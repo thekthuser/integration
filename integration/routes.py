@@ -17,10 +17,10 @@ def allowed_file(filename):
 def index():
     form = UploadImageForm(request.form)                                                             
     if request.method == 'POST':
-        #return 'POST'
 	upload = request.files['image']
 	if upload and allowed_file(upload.filename):
 	    return Response(upload.read(), mimetype='image')
-
+        else:
+            return render_template('index.html', form=form, error=True)
     else:
-        return render_template('index.html', form=form)
+        return render_template('index.html', form=form, error=False)

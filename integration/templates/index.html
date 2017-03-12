@@ -2,7 +2,10 @@
     <head>
     </head>
     <body>
-        Automatically deployed!<br />
+        <h2>Automatically deployed!</h2>
+        {% if error %}
+	    <h2 style="color: red;">Uploaded file must be an image.</h2>
+	{% endif %}
 	<form method='POST' action='{{ url_for("index") }}' enctype='multipart/form-data'>
 	    {{ form.csrf_token }}
 	    <table>
