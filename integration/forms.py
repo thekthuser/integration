@@ -3,7 +3,6 @@
 # forms.py                                                                                                        
 
 from flask.ext.wtf import Form                                                                                    
-from wtforms import validators                                                                                    
 from flask_wtf.file import FileField, FileAllowed                                                                 
 from integration import images                                                                                
 
