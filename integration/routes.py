@@ -5,8 +5,6 @@
 from flask import render_template, request
 from integration import app
 from integration.forms import UploadImageForm
-from flask import send_file
-
 from flask import Response
 
 def allowed_file(filename):                                                                          
