@@ -3,11 +3,13 @@
 #send_results.py
 
 import sys
+import os
 import smtplib
 import secrets
 
 
-with open('./integration/static/last_test.txt', 'r') as testfile:
+last_test_path = os.path.dirname(os.path.abspath(sys.argv[0])) + '/last_test.txt'
+with open(last_test_path, 'r') as testfile:
     status = testfile.readlines()[-1].decode()
 testfile.close()
 
