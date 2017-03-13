@@ -3,4 +3,4 @@ prod_settings.py
 *.pyc
 *.swp
 last_test.txt
-secrets.txt
+secrets.py
