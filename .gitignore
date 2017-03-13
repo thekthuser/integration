@@ -4,3 +4,4 @@ prod_settings.py
 *.swp
 last_test.txt
 secrets.py
+venv/*
