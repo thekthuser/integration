@@ -3,6 +3,7 @@
 #integration_tests.py
 
 import os
+import sys
 import integration
 import unittest
 from StringIO import StringIO
@@ -17,14 +18,18 @@ class IntegrationTestCase(unittest.TestCase):
 	pass
 
     def test_image(self):
-	with open('./integration/static/default_kitty.jpg', 'r') as image:
+	imagepath = os.path.dirname(os.path.abspath(sys.argv[0])) + \
+	'integration/static/default_kitty.jpg'
+	with open(imagepath, 'r') as image:
 	    imgString = StringIO(image.read())
 	response = self.app.post('/', data = {'image': (imgString, os.path.basename(image.name))})
 	self.assertEquals(response.status, '200 OK')
 	self.assertEquals(response.mimetype, 'image')
     
     def test_not_image(self):
-	with open('./integration/static/testing.txt', 'r') as text:
+	textpath = os.path.dirname(os.path.abspath(sys.argv[0])) + \
+	'integration/static/testing.txt'
+	with open(textpath, 'r') as text:
 	    imgString = StringIO(text.read())
 	response = self.app.post('/', data = {'image': (imgString, os.path.basename(text.name))})
 	assert 'Uploaded file must be an image.' in response.data
