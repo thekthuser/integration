@@ -7,7 +7,7 @@ import smtplib
 import secrets
 
 
-with open('last_test.txt', 'r') as testfile:
+with open('./integration/static/last_test.txt', 'r') as testfile:
     status = testfile.readlines()[-1].decode()
 testfile.close()
 
