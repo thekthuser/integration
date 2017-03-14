@@ -19,7 +19,7 @@ class IntegrationTestCase(unittest.TestCase):
 
     def test_image(self):
 	imagepath = os.path.dirname(os.path.abspath(sys.argv[0])) + \
-	'integration/static/default_kitty.jpg'
+	'/integration/static/default_kitty.jpg'
 	with open(imagepath, 'r') as image:
 	    imgString = StringIO(image.read())
 	response = self.app.post('/', data = {'image': (imgString, os.path.basename(image.name))})
@@ -28,7 +28,7 @@ class IntegrationTestCase(unittest.TestCase):
     
     def test_not_image(self):
 	textpath = os.path.dirname(os.path.abspath(sys.argv[0])) + \
-	'integration/static/testing.txt'
+	'/integration/static/testing.txt'
 	with open(textpath, 'r') as text:
 	    imgString = StringIO(text.read())
 	response = self.app.post('/', data = {'image': (imgString, os.path.basename(text.name))})
