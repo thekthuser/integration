@@ -1,0 +1,6 @@
+image: integration1
+script:
+    pip install Flask
+    pip install Flask-Uploads
+    pip install Flask-WTF
+    python run.py
